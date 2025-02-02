@@ -7,10 +7,15 @@ interface Props {
 const InputGroup = ({ label, placeholder, type }: Props) => {
   return (
     <>
-      <label htmlFor={label} className="form-label fw-bold">
+      <label htmlFor={label} className="form-label">
         {label}
       </label>
-      <input type={type} className="form-control" placeholder={placeholder} />
+      <input
+        id={label}
+        type={type}
+        className="form-control mb-3"
+        placeholder={placeholder}
+      />
     </>
   );
 };
