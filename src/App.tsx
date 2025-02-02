@@ -1,5 +1,15 @@
+import InputGroup from "./components/InputGroup";
+
 const App = () => {
-  return <div>Hello</div>;
+  return (
+    <>
+      <InputGroup
+        label="First Name"
+        placeholder="enter first name"
+        type="text"
+      />
+    </>
+  );
 };
 
 export default App;
