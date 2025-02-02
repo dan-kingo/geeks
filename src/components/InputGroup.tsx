@@ -1,7 +1,7 @@
 interface Props {
   label: string;
-  placeholder: string;
-  type: "text" | "email" | "number";
+  placeholder?: string;
+  type: "text" | "email" | "number" | "file" | "url";
 }
 
 const InputGroup = ({ label, placeholder, type }: Props) => {

@@ -1,3 +1,4 @@
+import Button from "./components/Button";
 import InputGroup from "./components/InputGroup";
 
 const App = () => {
@@ -16,6 +17,16 @@ const App = () => {
         placeholder="enter mobile number"
         type="number"
       />
+      <InputGroup label="Upload Resume" type="file" />
+      <InputGroup
+        label="Website URL"
+        placeholder="enter website url"
+        type="url"
+      />
+      <div>
+        <Button color="primary">Submit</Button>
+        <Button color="danger">Reset</Button>
+      </div>
     </div>
   );
 };
