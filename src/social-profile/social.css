@@ -1,0 +1,11 @@
+.social-card {
+  background-color: #1f1f1f;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 400px;
+}
