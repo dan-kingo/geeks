@@ -1,3 +1,10 @@
 body {
   margin: 20px;
 }
+
+.btn-custom {
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  background-color: #333333;
+  color: #fff;
+}
