@@ -1,9 +1,9 @@
-import SocialProfile from "./social-profile/SocialProfile";
+import ContactForm from "./contact-form/contactForm";
 
 const App = () => {
   return (
     <>
-      <SocialProfile />
+      <ContactForm />
     </>
   );
 };

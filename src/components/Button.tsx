@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { FormEvent, ReactNode } from "react";
 
 interface Props {
   color: "primary" | "danger" | "custom";
   children: ReactNode;
-  onClick?: () => void;
+  onClick?: (event: FormEvent) => void;
 }
 const Button = ({ color, children, onClick }: Props) => {
   return (
