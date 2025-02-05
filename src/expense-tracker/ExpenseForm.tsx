@@ -1,4 +1,7 @@
+import { useForm } from "react-hook-form";
 const ExpenseForm = () => {
+  const form = useForm();
+  console.log(form);
   const categories = ["Groceries", "Utilities", "Entertainment", "Other"];
   return (
     <form>
