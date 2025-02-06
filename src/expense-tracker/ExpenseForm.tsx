@@ -16,7 +16,7 @@ const ExpenseForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<Expense>({ resolver: zodResolver(schema) });
-  const categories = ["Groceries", "Utilities", "Entertainment", "Other"];
+  const categories = ["Groceries", "Utilities", "Entertainment"];
   return (
     <form onSubmit={handleSubmit((data) => console.log(data))}>
       <label htmlFor="description" className="form-label fw-bold">
