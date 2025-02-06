@@ -1,5 +1,5 @@
 export interface Expense {
-  id: number;
+  id?: number;
   description: string;
   amount: number;
   category: string;
@@ -31,7 +31,9 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
               <td>{expense.category}</td>
               <td>
                 <button
-                  onClick={() => onDelete(expense.id)}
+                  onClick={() =>
+                    expense.id !== undefined && onDelete(expense.id)
+                  }
                   className="btn btn-outline-danger"
                 >
                   Delete

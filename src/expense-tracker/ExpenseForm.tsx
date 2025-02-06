@@ -1,24 +1,34 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Expense } from "./ExpenseList";
 
+interface Props {
+  onSubmitForm: (data: Expense) => void;
+}
 const schema = z.object({
   description: z.string().min(5, { message: "at least 5 chars allowed" }),
   amount: z.number({ message: "Amount is Required" }).min(10).max(50_000),
   category: z.string(),
 });
 
-type Expense = z.infer<typeof schema>;
+type ExpenseData = z.infer<typeof schema>;
 
-const ExpenseForm = () => {
+const ExpenseForm = ({ onSubmitForm }: Props) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
-  } = useForm<Expense>({ resolver: zodResolver(schema) });
+  } = useForm<ExpenseData>({ resolver: zodResolver(schema) });
   const categories = ["Groceries", "Utilities", "Entertainment"];
   return (
-    <form onSubmit={handleSubmit((data) => console.log(data))}>
+    <form
+      onSubmit={handleSubmit((data) => {
+        onSubmitForm(data);
+        reset();
+      })}
+    >
       <label htmlFor="description" className="form-label fw-bold">
         Description
       </label>
@@ -48,15 +58,14 @@ const ExpenseForm = () => {
       </label>
       <select
         {...register("category")}
-        name=""
+        name="category"
         id="category"
         className="form-control mb-3"
       >
-        {categories.map((category, index) => (
-          <option value={category} key={index}>
-            {category}
-          </option>
-        ))}
+        <option value=""></option>
+        <option value="Groceries">Groceries</option>
+        <option value="Utilities">Utilities</option>
+        <option value="Entertainment">Entertainment</option>
       </select>
       {errors.category && (
         <p className="text-danger">{errors.category.message}</p>

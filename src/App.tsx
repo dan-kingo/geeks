@@ -16,7 +16,11 @@ const App = () => {
     : expenses;
   return (
     <>
-      <ExpenseForm />
+      <ExpenseForm
+        onSubmitForm={(expense) =>
+          setExpenses([...expenses, { ...expense, id: expenses.length + 1 }])
+        }
+      />
       <ExpenseFilter
         onSelectCategory={(category) => setSelectedCategory(category)}
       />
