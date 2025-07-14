@@ -21,7 +21,6 @@ const ExpenseForm = ({ onSubmitForm }: Props) => {
     reset,
     formState: { errors },
   } = useForm<ExpenseData>({ resolver: zodResolver(schema) });
-  const categories = ["Groceries", "Utilities", "Entertainment"];
   return (
     <form
       onSubmit={handleSubmit((data) => {
