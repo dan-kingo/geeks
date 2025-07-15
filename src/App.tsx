@@ -1,12 +1,22 @@
-import Button from "./components/Button";
-
+import { useState } from "react";
+import Slide from "./components/Slide";
+import { Slide as SlideType } from "./components/Slide";
 const App = () => {
 
+  const [slides, _setSlides] = useState<SlideType[]>([{
+    title: "Welcome to the Presentation",
+    subtitle: "This is the first slide"
+  },{
+    title: "Next Slide",
+    subtitle: "This is the second slide"
+  },{
+    title: "Final Slide",
+    subtitle: "This is the last slide"
+  }])
   return (
     <>
-<Button color="bg-blue-500">Submit</Button>  
-<Button color="bg-green-500">Submit</Button>  
-<Button color="bg-amber-500">Submit</Button>  
+
+<Slide slides={slides} />
 
   </>
   );
