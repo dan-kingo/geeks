@@ -1,20 +1,34 @@
 import { useState } from "react";
-import Button from "../components/Button";
 
 interface Props {
-  maxChars?: number;
   children: string;
+  maxLength?: number;
 }
 
-const ExpandableText = ({ maxChars = 100, children }: Props) => {
-  const [isExpanded, setExpanded] = useState(false);
-  let text = !isExpanded ? children.slice(0, maxChars) : children;
+const ExpandableText = ({ children, maxLength = 100 }: Props) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const isLongText = children.length > maxLength;
+
+  const toggleExpand = () => setIsExpanded(!isExpanded);
+
+  const textToShow = !isExpanded && isLongText
+    ? children.slice(0, maxLength) + "..."
+    : children;
+
   return (
     <div>
-      <p style={{ color: "#fff" }}>{text}</p>
-      <Button color="primary" onClick={() => setExpanded(!isExpanded)}>
-        {isExpanded ? "Show Less" : "Show More"}
-      </Button>
+      <p>{textToShow}</p>
+
+      {isLongText && (
+        <div className="mt-4">
+          <button
+            className="cursor-pointer px-4 py-2 rounded-lg bg-violet-600 text-white"
+            onClick={toggleExpand}
+          >
+            {isExpanded ? "Read Less" : "Read More"}
+          </button>
+        </div>
+      )}
     </div>
   );
 };
