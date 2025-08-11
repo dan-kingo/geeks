@@ -14,7 +14,7 @@ const Slide = ({ slides }: Props) => {
   return (
     <div className="flex flex-col items-center justify-center h-screen gap-4">
       <h1 className="text-3xl">{slides[slide].title}</h1>
-      <img className="w-[90%] h-[512px] rounded-xl shadow-2xl" src={slides[slide].imageUrl} alt="Slide Image" />
+      <img className="w-[80%] h-[512px] rounded-xl shadow-2xl" src={slides[slide].imageUrl} alt="Slide Image" />
       <div className="flex gap-4">
         <button
           className={`px-4 py-2 rounded-sm text-white  ${
